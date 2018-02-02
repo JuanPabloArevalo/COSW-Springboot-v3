@@ -29,7 +29,7 @@ public class UserController
     public Token login( @RequestBody User login )
         throws ServletException
     {
-
+        System.out.println("cASVAVAS)");
         String jwtToken = "";
 
         if ( login.getUsername() == null || login.getPassword() == null )
