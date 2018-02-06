@@ -38,6 +38,10 @@ public class TodoController {
 
     @RequestMapping(value = "/todo", method = RequestMethod.POST)
     public void setTodo(@RequestBody Todo todo){
+        System.out.println("ACAAAAAA");
+        System.out.println("1: "+todo.getDescription());
+        System.out.println("2: "+todo.getPriority());
+        System.out.println("3: "+todo.isCompleted());
         todoService.addTodo(todo);
     }
 }

@@ -184,10 +184,10 @@ AppModule = __decorate([
             },
             __WEBPACK_IMPORTED_MODULE_11__services_todo_service__["a" /* TodoService */],
             __WEBPACK_IMPORTED_MODULE_13__common_config_app_configuration_service__["a" /* AppConfiguration */],
-            __WEBPACK_IMPORTED_MODULE_12__services_users_service__["a" /* UsersService */],
             __WEBPACK_IMPORTED_MODULE_17__common_app_data_service__["a" /* AppDataService */],
             __WEBPACK_IMPORTED_MODULE_16__common_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_18__common_api_service__["a" /* APIService */]
+            __WEBPACK_IMPORTED_MODULE_18__common_api_service__["a" /* APIService */],
+            __WEBPACK_IMPORTED_MODULE_12__services_users_service__["a" /* UsersService */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
@@ -613,8 +613,9 @@ module.exports = "<div class=\"container\">\r\n  <h2>Sign In</h2>\r\n  <form [fo
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignInPageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -627,10 +628,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SignInPageComponent = (function () {
-    function SignInPageComponent(formBuilder, router) {
+    function SignInPageComponent(formBuilder, router, usersService) {
         this.formBuilder = formBuilder;
         this.router = router;
+        this.usersService = usersService;
     }
     SignInPageComponent.prototype.ngOnInit = function () {
         this.signInForm = this.formBuilder.group({
@@ -653,10 +656,10 @@ SignInPageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/sign-in/sign-in-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/sign-in/sign-in-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_users_service__["a" /* UsersService */]) === "function" && _c || Object])
 ], SignInPageComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=sign-in-page.component.js.map
 
 /***/ }),
