@@ -866,7 +866,10 @@ var TodoService = (function (_super) {
         return this.get(this.resourceUrl);
     };
     TodoService.prototype.create = function (description, priority, completed) {
-        return this.post(this.resourceUrl, { description: description, priority: priority, completed: completed });
+        return this.post(this.resourceUrl, { description: description, priority: priority, completed: completed }).map(function (loginResponse) {
+            if (loginResponse) {
+            }
+        });
     };
     return TodoService;
 }(__WEBPACK_IMPORTED_MODULE_1__common_api_service__["a" /* APIService */]));

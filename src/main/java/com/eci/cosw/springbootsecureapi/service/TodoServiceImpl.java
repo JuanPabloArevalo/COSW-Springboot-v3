@@ -17,10 +17,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TodoServiceImpl implements TodoService{
-     private List<Todo> todos = new ArrayList<>();
+     private List<Todo> todos;
     
     @Autowired
     public TodoServiceImpl(){
+        todos = new ArrayList<>();
     }
     
     

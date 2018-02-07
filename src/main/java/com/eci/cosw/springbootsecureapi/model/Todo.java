@@ -19,6 +19,12 @@ public class Todo {
         
     }
     
+    public Todo(String description, int priority, boolean completed){
+        this.description = description;
+        this.priority = priority;
+        this.completed = completed;
+    }
+    
     /**
      * @return the description
      */
@@ -61,5 +67,11 @@ public class Todo {
         this.completed = completed;
     }
     
+    /**
+     * @return 
+     */
+    public boolean getCompleted() {
+        return completed;
+    }
     
 }
