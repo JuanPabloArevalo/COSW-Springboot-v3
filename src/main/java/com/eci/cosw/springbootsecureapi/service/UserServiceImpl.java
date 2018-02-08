@@ -28,7 +28,7 @@ public class UserServiceImpl
     @PostConstruct
     private void populateSampleData()
     {
-        users.add( new User( "test@mail.com", "password", "Andres", "Perez" , "http://www.elcolombiano.com/documents/10157/0/580x375/0c5/580d365/none/11101/GWBC/image_content_26637562_20160805210529.jpg", "juan") );
+        users.add( new User( "test@mail", "password", "Andres", "Perez" , "http://www.elcolombiano.com/documents/10157/0/580x375/0c5/580d365/none/11101/GWBC/image_content_26637562_20160805210529.jpg", "juan") );
     }
 
 
@@ -41,6 +41,7 @@ public class UserServiceImpl
     @Override
     public User getUser( Long id )
     {
+        
         return users.get( 0 );
     }
 
@@ -52,9 +53,17 @@ public class UserServiceImpl
     }
 
     @Override
-    public User findUserByEmail( String email )
+    public User findUserByEmail( String email ) throws UsersException
     {
-        return users.get( 0 );
+        System.out.println("Email a buscar: "+email);
+        for(int i=0; i<users.size(); i++){
+            System.out.println("Email: "+users.get(i).getEmail());
+            if(email.equalsIgnoreCase(users.get(i).getEmail())){
+                 
+                return users.get(i);
+            }
+        }
+        throw new UsersException("No user found with the email address");
     }
 
     @Override

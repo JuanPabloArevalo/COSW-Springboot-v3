@@ -2,6 +2,7 @@ package com.eci.cosw.springbootsecureapi.controller;
 
 import com.eci.cosw.springbootsecureapi.model.User;
 import com.eci.cosw.springbootsecureapi.service.UserService;
+import com.eci.cosw.springbootsecureapi.service.UsersException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.ServletException;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * @author Santiago Carrillo
@@ -66,10 +68,13 @@ public class UserController
         return userService.getUsers();
     }
     
+    @RequestMapping( value = "/{email}", method = RequestMethod.GET )
+    public User getUsersByEmail(@PathVariable("email") String email) throws UsersException{
+        return userService.findUserByEmail(email);
+    }
+    
     @RequestMapping( value = "/users", method = RequestMethod.POST )
     public User setUsers(@RequestBody User user){
-        System.out.println("Entrooooo");
-        System.out.println(user.getName());
         return userService.createUser(user);
     }
 
