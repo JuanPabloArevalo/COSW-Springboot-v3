@@ -28,7 +28,7 @@ public class UserServiceImpl
     @PostConstruct
     private void populateSampleData()
     {
-        users.add( new User( "test@mail.com", "password", "Andres", "Perez" ) );
+        users.add( new User( "test@mail.com", "password", "Andres", "Perez" , "http://www.elcolombiano.com/documents/10157/0/580x375/0c5/580d365/none/11101/GWBC/image_content_26637562_20160805210529.jpg", "juan") );
     }
 
 
@@ -47,7 +47,8 @@ public class UserServiceImpl
     @Override
     public User createUser( User user )
     {
-        return users.get( 0 );
+        users.add(user);
+        return user;
     }
 
     @Override

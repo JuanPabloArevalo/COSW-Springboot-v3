@@ -5,6 +5,7 @@ import com.eci.cosw.springbootsecureapi.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,6 +58,19 @@ public class UserController
             SignatureAlgorithm.HS256, "secretkey" ).compact();
 
         return new Token( jwtToken );
+    }
+    
+    
+    @RequestMapping( value = "/users", method = RequestMethod.GET )
+    public List<User> getUsers(){
+        return userService.getUsers();
+    }
+    
+    @RequestMapping( value = "/users", method = RequestMethod.POST )
+    public User setUsers(@RequestBody User user){
+        System.out.println("Entrooooo");
+        System.out.println(user.getName());
+        return userService.createUser(user);
     }
 
     public class Token

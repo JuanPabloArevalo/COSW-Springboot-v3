@@ -13,23 +13,26 @@ public class User
 
     private String password;
 
-    private String firstname;
+    private String name;
 
     private String lastname;
 
     private String username;
 
+    private String image;
 
     public User()
     {
     }
 
-    public User( String email, String password, String firstname, String lastname )
+    public User( String email, String password, String firstname, String lastname, String image, String username )
     {
         this.email = email;
         this.password = password;
-        this.firstname = firstname;
+        this.name = firstname;
         this.lastname = lastname;
+        this.image = image;
+        this.username = username;
     }
 
 
@@ -63,14 +66,14 @@ public class User
         this.password = password;
     }
 
-    public String getFirstname()
+    public String getName()
     {
-        return firstname;
+        return name;
     }
 
-    public void setFirstname( String firstname )
+    public void setName( String name )
     {
-        this.firstname = firstname;
+        this.name = name;
     }
 
     public String getLastname()
@@ -92,11 +95,27 @@ public class User
     {
         this.username = username;
     }
+    
+    
 
     @Override
     public String toString()
     {
         return "User{" + "id=" + id + ", email='" + email + '\'' + ", password='" + password + '\'' + ", firstname='"
-            + firstname + '\'' + '}';
+            + name + '\'' + '}';
+    }
+
+    /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
     }
 }
