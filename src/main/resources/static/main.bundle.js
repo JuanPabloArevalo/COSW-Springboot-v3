@@ -21,7 +21,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "img {\r\n    max-width: 100%;\r\n    max-height: 100%;\r\n}", ""]);
 
 // exports
 
@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse\">\r\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\r\n            aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <a class=\"navbar-brand\" href=\"#\">COSW Angular4</a>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\r\n        <ul class=\"navbar-nav mr-auto\">\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLinkActive=\"/\" routerLink=\"/\">Home</a>\r\n            </li>\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLinkActive=\"/tasks\" routerLink=\"/tasks\">Tasks</a>\r\n            </li>\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLinkActive=\"/edit\" routerLink=\"/edit\">Edit</a>\r\n            </li>\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLinkActive=\"/users\" routerLink=\"/users\">Users</a>\r\n            </li>\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLinkActive=\"/userEdit\" routerLink=\"/userEdit\">Edit Users</a>\r\n            </li>\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a href=\"#\" class=\"nav-link\" (click)=\"signOut()\">(Sign Out)</a>\r\n            </li>\r\n\r\n        </ul>\r\n        <ul  class=\"nav navbar-nav navbar-right\">\r\n            <li><div class=\"input-group\">\r\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\r\n                    <div class=\"input-group-btn\">\r\n                        <button class=\"btn btn-default\" (click)=\"signOut()\">Search</button>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n\r\n\r\n\r\n<div class=\"container\">\r\n    <router-outlet></router-outlet>\r\n</div>"
+module.exports = "<nav class=\"navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse\">\r\n    <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\r\n            aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <a class=\"navbar-brand\" href=\"#\">COSW Angular4</a>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\r\n        <ul class=\"navbar-nav mr-auto\">\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLinkActive=\"/\" routerLink=\"/\">Home</a>\r\n            </li>\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLinkActive=\"/tasks\" routerLink=\"/tasks\">Tasks</a>\r\n            </li>\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLinkActive=\"/edit\" routerLink=\"/edit\">Edit</a>\r\n            </li>\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLinkActive=\"/users\" routerLink=\"/users\">Users</a>\r\n            </li>\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a class=\"nav-link\" routerLinkActive=\"/userEdit\" routerLink=\"/userEdit\">Edit Users</a>\r\n            </li>\r\n            <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\r\n                <a href=\"#\" class=\"nav-link\" (click)=\"signOut()\">(Sign Out)</a>\r\n            </li>\r\n\r\n        </ul>\r\n        <ul  class=\"nav navbar-nav navbar-right\">\r\n            <form [formGroup]=\"findUserForm\" (ngSubmit)=\"onSubmit(content)\" novalidate>\r\n                <li><div class=\"input-group\">\r\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search\" id=\"search\" formControlName=\"search\" required>\r\n                        <div class=\"input-group-btn\">\r\n                            <button type=\"submit\"  class=\"btn btn-default\">Search</button>\r\n                        </div>\r\n                    </div>\r\n                </li>\r\n            </form>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n\r\n\r\n\r\n\r\n<ng-template #content let-c=\"close\" let-d=\"dismiss\">\r\n    <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Search Panel</h4>\r\n        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('Cross click')\">\r\n                <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n        <div *ngIf=\"!findUserByEmail()\" class=\"form-group\">\r\n            <div class=\"jumbotron\">\r\n                <h4 class=\"text-center\" *ngIf=\"infoModal\">{{infoModal}}</h4>\r\n            </div>\r\n        </div>\r\n\r\n\r\n\r\n        <div *ngIf=\"findUserByEmail()\" class=\"form-group\">\r\n             <h1 class=\"text-center\" *ngIf=\"user\">{{user.name}}  {{user.lastname}}</h1>\r\n            <div class=\"jumbotron\">\r\n                <img class=\"img-responsive img-circle\" [src]=\"user.image\"/>\r\n            </div>\r\n        </div>\r\n<!--\r\n        <div *ngIf=\"findUserByEmail()\" class=\"form-group\">\r\n            <p>Last Name: <kbd class=\"label label-default\" *ngIf=\"user\">{{user.lastname}}</kbd></p>\r\n        </div>\r\n\r\n        <div *ngIf=\"findUserByEmail()\" class=\"form-group\">\r\n            <p>Name: <kbd class=\"label label-default\" *ngIf=\"user\">{{user.name}}</kbd></p>\r\n        </div>-->\r\n\r\n\r\n\r\n    </div>\r\n    <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-outline-light\" (click)=\"c('Close click')\">Close</button>\r\n    </div>\r\n</ng-template>\r\n\r\n\r\n\r\n\r\n<div class=\"container\">\r\n    <router-outlet></router-outlet>\r\n</div>"
 
 /***/ }),
 
@@ -45,6 +45,9 @@ module.exports = "<nav class=\"navbar navbar-toggleable-md navbar-inverse fixed-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_auth_service__ = __webpack_require__("../../../../../src/app/common/auth.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -58,10 +61,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var AppComponent = (function () {
-    function AppComponent(authService, router) {
+    function AppComponent(authService, router, modalService, userService, formBuilder) {
         this.authService = authService;
         this.router = router;
+        this.modalService = modalService;
+        this.userService = userService;
+        this.formBuilder = formBuilder;
         this.title = 'app';
         if (!this.authService.isLoggedIn()) {
             this.router.navigate(['/']);
@@ -73,6 +82,29 @@ var AppComponent = (function () {
     AppComponent.prototype.signOut = function () {
         this.authService.signOut();
     };
+    AppComponent.prototype.open = function (content) {
+        this.modalService.open(content, { windowClass: 'dark-modal' });
+    };
+    AppComponent.prototype.ngOnInit = function () {
+        this.findUserForm = this.formBuilder.group({
+            search: ''
+        });
+    };
+    AppComponent.prototype.onSubmit = function (content) {
+        var _this = this;
+        this.userService.findByEmail(this.findUserForm.get('search').value).subscribe(function (serverResponse) {
+            _this.isUserByEmail = true;
+            _this.user = serverResponse;
+            _this.modalService.open(content, { windowClass: 'dark-modal' });
+        }, function (error) {
+            _this.isUserByEmail = false;
+            _this.infoModal = 'No user found with the email address';
+            _this.modalService.open(content, { windowClass: 'dark-modal' });
+        });
+    };
+    AppComponent.prototype.findUserByEmail = function () {
+        return this.isUserByEmail;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -81,10 +113,10 @@ AppComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__common_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__common_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__common_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__common_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_user_service__["a" /* UserService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["e" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["e" /* FormBuilder */]) === "function" && _e || Object])
 ], AppComponent);
 
-var _a, _b;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -1091,6 +1123,9 @@ var UserService = (function (_super) {
     }
     UserService.prototype.list = function () {
         return this.get('user/users');
+    };
+    UserService.prototype.findByEmail = function (email) {
+        return this.get('user/' + email);
     };
     UserService.prototype.create = function (name, lastname, image) {
         return this.post('user/users', { name: name, lastname: lastname, image: image }).map(function (loginResponse) {

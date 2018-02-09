@@ -55,11 +55,8 @@ public class UserServiceImpl
     @Override
     public User findUserByEmail( String email ) throws UsersException
     {
-        System.out.println("Email a buscar: "+email);
         for(int i=0; i<users.size(); i++){
-            System.out.println("Email: "+users.get(i).getEmail());
             if(email.equalsIgnoreCase(users.get(i).getEmail())){
-                 
                 return users.get(i);
             }
         }

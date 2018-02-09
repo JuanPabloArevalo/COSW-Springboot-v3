@@ -70,6 +70,7 @@ public class UserController
     
     @RequestMapping( value = "/{email}", method = RequestMethod.GET )
     public User getUsersByEmail(@PathVariable("email") String email) throws UsersException{
+        System.out.println("Correo: "+email);
         return userService.findUserByEmail(email);
     }
     
